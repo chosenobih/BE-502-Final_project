@@ -9,11 +9,17 @@ Language: Python
 Hypothesis: An increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.
 
 Data: Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
+
 sources:
+
 [Southwest Cordination Center](https://gacc.nifc.gov/swcc/predictive/intelligence/Historical/Fire_and_Resource_Data/Historical_Fires_Acres.htm)
+
 Climate data TBD
+
 Remote sensing data TBD
 
 Workflow:
+
 Chosen and Nasser: Data summarizing (rain and temp montly AVG, change over time, total number of fires in the year, total fires per month, acres burned per month, cause of fire (ex: lightning from more rain), and potantial addition of statistical significance of location of fire, climate data, cause of fire. Data visualizations: scatter plot over map, line plots
+
 Madeline and Truman: Analyzing remote sensing data to identify effects of wildfires and climate on vegetation indices. Visualizing remote sensing images to visually identify fire locations.
