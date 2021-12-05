@@ -21,13 +21,13 @@ Promt: The project aims to synthesize different parts of knowledge acquired in t
 
 ## Project Hypothesis
 -  increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.
-
 - Data: 
   - Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
 - Sources:
   [Southwest Cordination Center](https://gacc.nifc.gov/swcc/predictive/intelligence/Historical/Fire_and_Resource_Data/Historical_Fires_Acres.htm)
 - Climate data TBD
 - Remote sensing data TBD
+
 
 ## Workflow
 - Chosen and Nasser:
