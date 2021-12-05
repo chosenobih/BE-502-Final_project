@@ -16,7 +16,7 @@
   - email : nasseralbalawi@email.arizona.edu
 
 ## Project Prompt 
-Promt: The project aims to synthesize different parts of knowledge acquired in this course. It is a group project with a team size of 2 to 4. Each group needs to raise a question (or form a hypothesis) about the raining data but should download additional data than the existing Tucson and Weather data in 2018-2020. You will analyze the downloaded data and conclude from the new data. Each group submits one copy of the report, including your research question, workflow, results, and conclusion. It ends with the contribution of each team member. Please attach separate files for the program coded for the project with respective suffix names (.r, .sh, or .py).
+The project aims to synthesize different parts of knowledge acquired in this course. It is a group project with a team size of 2 to 4. Each group needs to raise a question (or form a hypothesis) about the raining data but should download additional data than the existing Tucson and Weather data in 2018-2020. You will analyze the downloaded data and conclude from the new data. Each group submits one copy of the report, including your research question, workflow, results, and conclusion. It ends with the contribution of each team member. Please attach separate files for the program coded for the project with respective suffix names (.r, .sh, or .py).
 
 
 ## Project Hypothesis
