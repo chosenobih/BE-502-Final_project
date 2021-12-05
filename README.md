@@ -35,6 +35,8 @@ Remote sensing data TBD
 
 ## Workflow
 
-- Chosen and Nasser: Data summarizing (rain and temp montly AVG, change over time, total number of fires in the year, total fires per month, acres burned per month, cause of fire (ex: lightning from more rain), and potantial addition of statistical significance of location of fire, climate data, cause of fire. Data visualizations: scatter plot over map, line plots
+- Chosen and Nasser
+  - Data summarizing (rain and temp montly AVG, change over time, total number of fires in the year, total fires per month, acres burned per month, cause of fire (ex: lightning from more rain), and potantial addition of statistical significance of location of fire, climate data, cause of fire. Data visualizations: scatter plot over map, line plots
 
-- Madeline and Truman: Analyzing remote sensing data to identify effects of wildfires and climate on vegetation indices. Visualizing remote sensing images to visually identify fire locations.
+- Madeline and Truman:
+  - Analyzing remote sensing data to identify effects of wildfires and climate on vegetation indices. Visualizing remote sensing images to visually identify fire locations.
