@@ -11,7 +11,7 @@ This repository contain the files of BAT/BE 502 project
 - Team Member : Truman Combs
   - email: tpcombs@email.arizona.edu
 - Team Member : Chosen Obih
-  -email :chosenobih@email.arizona.edu
+  - email :chosenobih@email.arizona.edu
 - Team Member : Nasser Albalawi
   - email : nasseralbalawi@email.arizona.edu
 
