@@ -1,6 +1,6 @@
 # BE-502-Final_project
 
-- This repository contain the files of `BAT/BE 502 Project`.
+- This repository contains the files of `BAT/BE 502 Project`.
 
 ## ABOUT
 
