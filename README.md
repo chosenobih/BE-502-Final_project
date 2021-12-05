@@ -26,12 +26,11 @@ Language: Python
 - Data: 
   - Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
 
-- sources:
+- Sources:
   [Southwest Cordination Center](https://gacc.nifc.gov/swcc/predictive/intelligence/Historical/Fire_and_Resource_Data/Historical_Fires_Acres.htm)
 
-Climate data TBD
-
-Remote sensing data TBD
+- Climate data TBD
+- Remote sensing data TBD
 
 ## Workflow
 - Chosen and Nasser:
