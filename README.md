@@ -4,7 +4,7 @@
 
 ## ABOUT
 
-### Team information
+### Team Information
 
 - Team Member : Madeline Melichar 
   - email : mgmelichar@email.arizona.edu
@@ -20,7 +20,7 @@ The project aims to synthesize different parts of knowledge acquired in this cou
 
 
 ## Project Hypothesis
--  increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.
+-  Increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.
 - Data: 
   - Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
 - Sources:
@@ -34,3 +34,5 @@ The project aims to synthesize different parts of knowledge acquired in this cou
   - Data summarizing (rain and temp montly AVG, change over time, total number of fires in the year, total fires per month, acres burned per month, cause of fire (ex: lightning from more rain), and potantial addition of statistical significance of location of fire, climate data, cause of fire. Data visualizations: scatter plot over map, line plots
 - Madeline and Truman:
   - Analyzing remote sensing data to identify effects of wildfires and climate on vegetation indices. Visualizing remote sensing images to visually identify fire locations.
+
+## License
