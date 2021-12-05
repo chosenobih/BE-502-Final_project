@@ -1,6 +1,6 @@
 # BE-502-Final_project
 
-- This repository contains the files of `BAT/BE 502 Project`.
+- This repository contains the files of `BAT/BE 502 final Project`.
 
 ## ABOUT
 
@@ -22,13 +22,18 @@ The project aims to synthesize different parts of knowledge acquired in this cou
 ## Project Hypothesis
 - `Due to the increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.`
 
+## Project Description 
+
 ## Data Source 
 - Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
-- Sources:
-  [Southwest Cordination Center](https://gacc.nifc.gov/swcc/predictive/intelligence/Historical/Fire_and_Resource_Data/Historical_Fires_Acres.htm)
+- [Southwest Cordination Center](https://gacc.nifc.gov/swcc/predictive/intelligence/Historical/Fire_and_Resource_Data/Historical_Fires_Acres.htm)
 - Climate data TBD
 - Remote sensing data TBD
 
+
+## Software Development Tools
+ - Programming Language
+    - Python   
 
 ## Workflow
 - Chosen and Nasser:
