@@ -2,7 +2,7 @@
 
 This repository contain the files of BAT/BE 502 project  
 
-##ABOUT
+## ABOUT
 
 ### Team information
 
