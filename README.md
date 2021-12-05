@@ -20,6 +20,7 @@ Promt: The project aims to synthesize different parts of knowledge acquired in t
 
 Language: Python
 
+## Project Hypothesis
 Hypothesis: An increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.
 
 Data: Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
