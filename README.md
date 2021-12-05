@@ -20,7 +20,7 @@ The project aims to synthesize different parts of knowledge acquired in this cou
 
 
 ## Project Hypothesis
--  Increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.
+- Due to the increase in the number of wildfires in Arizona is a result of higher temperatures, a longer heat season (summer), and less precipitation.
 
 ## Data Source 
 - Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
