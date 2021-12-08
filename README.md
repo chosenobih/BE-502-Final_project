@@ -27,7 +27,7 @@ The project aims to synthesize different parts of knowledge acquired in this cou
 ## Data Source 
 - Fire, climate, and multispectral data for the year 2020 in the entire state of Arizona.
 - [Southwest Cordination Center](https://gacc.nifc.gov/swcc/predictive/intelligence/Historical/Fire_and_Resource_Data/Historical_Fires_Acres.htm)
-- Climate data TBD
+- [PRISM Climate data](https://prism.oregonstate.edu/)
 - Remote sensing data TBD
 
 
