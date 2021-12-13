@@ -33,7 +33,8 @@ The project aims to synthesize different parts of knowledge acquired in this cou
 
 ## Software Development Tools
  - Programming Language
-    - Python   
+    - Python
+    - R   
 
 ## Workflow
 - Chosen and Nasser:
