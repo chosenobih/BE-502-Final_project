@@ -20,7 +20,7 @@ The project aims to synthesize different parts of knowledge acquired in this cou
 
 
 ## Project Hypothesis
-- 'Increase in the number of wildfires in Arizona is as a result of higher temperatures, a longer heat season (summer), and less precipitation.`
+- 'Higher average monthly temperature and lower monthly rainfall leads to an increase in acreage burned.'
 
 ## Project Description 
 
