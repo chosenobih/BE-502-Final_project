@@ -38,11 +38,17 @@ This project aims to observe the effects of monthly climate data on the magnitud
 **Chosen**
 
 #### Nasser : ` Data Summarizing `
+Python code
+
 - The Results of Average Rain and Temperature 
 ![image](https://user-images.githubusercontent.com/14947851/146123734-dc10f0aa-e2bd-4394-b4da-6983e02d1a24.png)
 
 - The Result of Fire Per Month  
 ![image](https://user-images.githubusercontent.com/14947851/146124061-074c1838-0af7-452a-b94d-21e1110388eb.png)
+
+- The Result of Fire Causes 
+![image](https://user-images.githubusercontent.com/14947851/146124342-fa233d4d-fca5-44d9-b8d6-a875be08abe3.png)
+
 
 
 #### Madeline: `Statistical Analysis `
