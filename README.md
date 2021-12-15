@@ -39,14 +39,18 @@ Chosen
 Nasser
 
 Madeline: Statistical Analysis
+
+*Stats.R*
+
 The initial statistical analysis performed involved observing the distribution of fires through the year. We predicted that we would see the most fires occur in the summer months given the hotter temperatures and scattered rain events in Arizona. From the histogram shown below (“Active Fires/Month of 2020”), our prediction was supported. The histogram was created using the R base function hist(). The distribution of the histogram has a shifted bell shape, with a peak in July and no fires occurring in the months of January, February, March, or December.
  
-Histogram of active fires per month of 2020. If a fire started and ended in separate months, the fire was considered “active” for both months.
+![alt text] (https://github.com/chosenobih/BE-502-Final_project/blob/main/hist.png)
+*Histogram of active fires per month of 2020. If a fire started and ended in separate months, the fire was considered “active” for both months.*
 
 An ANOVA test was performed using the R function aov(), to estimate how the dependent variable (acres burned) changes according to the levels of the independent variables (total monthly rain, mean monthly temperature, the month, the cause of the fire, and the fuel vegetation of the fire). The ANOVA table below shows that neither the total monthly rain, mean monthly temperature, or month is statistically significant to the number of acres burned because they all have a p-value > 0.05 (Pr(>F) column). The results do show that the cause and fuels of the fire do have a statically significant effect on the acres burned because they have a p-value < 0.05. When observing the interactions between the month and total mean rain and mean temperature, the interactions show no statistically significant effect on the number of acres burned.
 
- 
-ANOVA table for monthly climate data and annual fire data in 2020.
+![alt text] (https://github.com/chosenobih/BE-502-Final_project/blob/main/ANOVA.png)
+*ANOVA table for monthly climate data and annual fire data in 2020.*
 
 From these results, further improvements to this project could look at fire and climate data for consecutive years to draw conclusions about the effects of climate temperature and precipitation on acers burned.  Climate data could also be limited to the duration in which the fire was burning or to the period prior to the fire burning. This could provide a deeper look at possible climatic causes and influences on the fire’s magnitude.
 
