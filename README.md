@@ -38,7 +38,7 @@ Chosen
 
 Nasser
 
-Madeline: Statistical Analysis
+**Madeline: Statistical Analysis**
 
 *Stats.R*
 
