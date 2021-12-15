@@ -37,9 +37,10 @@ This project aims to observe the effects of monthly climate data on the magnitud
 
 **Chosen**
 
-**Nasser**
+#### Nasser : ` Data Summarizing `
 
-**Madeline: Statistical Analysis**
+
+#### Madeline: `Statistical Analysis `
 
 *Stats.R*
 
