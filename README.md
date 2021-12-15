@@ -38,7 +38,7 @@ This project aims to observe the effects of monthly climate data on the magnitud
 **Chosen**
 
 #### Nasser : ` Data Summarizing `
-The dataset for this project comes in two files. One data set contains all the information about the fire, such as the cause of the fire, date of starting and ending fire, location, and other information related to that matters.  Another dataset has presented the climate. This dataset contains all climate information like the max and min of rain per day and location. 
+The dataset for this project comes in two files. One data set contains all the information about the fire, such as the cause of the fire, date of starting and ending fire, location, and other information related to that matters.  Another dataset has presented the climate. This dataset contains all climate information like the max and min of rain per day and location.The data would be extracted data from the two datasets to calculate the average of precipitation, temperature, and   
 
 - The Results of Average Rain and Temperature 
 ![image](https://user-images.githubusercontent.com/14947851/146123734-dc10f0aa-e2bd-4394-b4da-6983e02d1a24.png)
