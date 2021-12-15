@@ -34,9 +34,10 @@ This project aims to observe the effects of monthly climate data on the magnitud
     - R   
 
 ## Workflow Reports
-Chosen 
 
-Nasser
+**Chosen**
+
+**Nasser**
 
 **Madeline: Statistical Analysis**
 
@@ -56,6 +57,6 @@ An ANOVA test was performed using the R function aov(), to estimate how the depe
 
 From these results, further improvements to this project could look at fire and climate data for consecutive years to draw conclusions about the effects of climate temperature and precipitation on acers burned.  Climate data could also be limited to the duration in which the fire was burning or to the period prior to the fire burning. This could provide a deeper look at possible climatic causes and influences on the fire’s magnitude.
 
-Truman
+**Truman**
 
 ## License
