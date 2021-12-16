@@ -3,7 +3,7 @@
 install_github("ropensci/prism") #use this instead of install.packages("prism") to get latest version 
 packageVersion("prism") #should be >= 0.2.0 (required for 'prism_set_dl_dir')
 library(prism)
-#library(rgdal)
+library(rgdal)
 #library(raster)
 library(lubridate)
 #install.packages(TDPanalysis)
@@ -49,9 +49,27 @@ getwd()
 ####End#### A new 'prism_gridded' directory would now contain all of the same data that is already available in the Github version of the folder
 
 
-#Import ancillary data for use in analysis
+####Start#### Import ancillary data for use in analysis
 
 fire = read.csv(file = 'AZ_2020_fire.csv') # read in csv fire data
 # head(fire) # visualize a subset of the full dataset
+
+state <- readOGR("./AZ_TPC/Arizona_boundary.shp") #Shapefile boundary of the state of Arizona
+
+####End####
+
+
+
+#Visualize 30-year normal annual data for the entire continental US, for perspective
+datatypes <- c("tmean", "ppt")
+
+for (i in datatypes) {
+  annual_normal <- prism_archive_subset(
+    i, "annual normals", resolution = "4km"
+  )
+  pd_image(annual_normal)
+  
+}
+
 
 
