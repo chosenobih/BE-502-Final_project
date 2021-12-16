@@ -30,5 +30,28 @@ getwd()
 #   keepZip = FALSE
 # )
 
+# #pull mean daily temps -- not used in analysis, but already included in Github 'prism_gridded' folder (could be useful)
+# get_prism_dailys(
+#   type = "tmean",
+#   minDate = "2020-01-01",
+#   maxDate = "2020-12-31",
+#   keepZip = FALSE
+# )
+
+# #Monthly Data - Both of the following datasets are also already included in 'prism_gridded'
+# get_prism_monthlys(type = "tmean", year = 2020, mon = 1:12, keepZip = FALSE) #downloading prism 'monthly tmean' data to directory above
+# get_prism_monthlys(type = "ppt", year = 2020, mon = 1:12, keepZip = FALSE) #downloading prism 'monthly ppt' data to directory above
+
+# #30-year Normal Annual Data - Both of the following datasets are also already included in 'prism_gridded'
+# get_prism_normals("tmean", "4km", mon = NULL, annual = TRUE, keepZip = FALSE)
+# get_prism_normals("ppt", "4km", mon = NULL, annual = TRUE, keepZip = FALSE)
+
+####End#### A new 'prism_gridded' directory would now contain all of the same data that is already available in the Github version of the folder
+
+
+#Import ancillary data for use in analysis
+
+fire = read.csv(file = 'AZ_2020_fire.csv') # read in csv fire data
+# head(fire) # visualize a subset of the full dataset
 
 
