@@ -35,8 +35,6 @@ This project aims to observe the effects of monthly climate data on the magnitud
 
 ## Workflow Reports
 
-**Chosen**
-
 #### Nasser : ` Data Summarizing `
 The dataset for this project comes in two files. One dataset contains all the information about the fire, such as the cause of the fire, date of starting and ending fire, location, and other information related to that matters. Another dataset has presented the climate. This dataset contains all climate information like the max and min of rain per day and location.The data would be extracted from these two datasets to calculate the average of precipitation, temperature, cause of the fire, total number of fire, fires per month, and total number of acres burned. The results would be presented in csv file format.   
 
@@ -48,6 +46,8 @@ The dataset for this project comes in two files. One dataset contains all the in
 
 - The Result of Fire Causes 
 ![image](https://user-images.githubusercontent.com/14947851/146124342-fa233d4d-fca5-44d9-b8d6-a875be08abe3.png)
+
+#### Chosen: Visualization of summarized data
 
 
 
