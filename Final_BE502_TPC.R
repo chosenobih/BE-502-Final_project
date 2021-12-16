@@ -58,6 +58,17 @@ state <- readOGR("./AZ_TPC/Arizona_boundary.shp") #Shapefile boundary of the sta
 
 ####End####
 
+####Start#### Create vectors to store various data for later analysis/display
+
+list_site <- c() #12 months for each fire
+fire_variables = c("Fuels1", "Cause", "Agency")  #defining relevant variables from 'fire' csv
+start_doy <- c() #start of each fire as day-of-year
+end_doy <- c() #end of each fire as day-of-year
+duration <- c() # how long each fire lasts, from start to end
+acres_burned <- c() #pulled directly from 'fire' csv as acreage burned for each fire
+sum_ppt_start = c() #sum of the total rainfall occurring at each site leading up to the start of fire event (i.e., Jan 1, 2020 -> start_doy)
+sum_ppt_end = c() #sum of the total rainfall occurring at each site leading up to the end of fire event (i.e., Jan 1, 2020 -> end_doy)
+
 
 
 #Visualize 30-year normal annual data for the entire continental US, for perspective
