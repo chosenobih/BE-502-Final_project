@@ -48,7 +48,11 @@ The dataset for this project comes in two files. One dataset contains all the in
 ![image](https://user-images.githubusercontent.com/14947851/146124342-fa233d4d-fca5-44d9-b8d6-a875be08abe3.png)
 
 #### Chosen: Visualization of summarized data
+We plotted out the summarized data in bar charts in order to better visualize the data. 
 
+![alt text](https://github.com/chosenobih/BE-502-Final_project/blob/main/Average rain per month.png)
+![alt text](https://github.com/chosenobih/BE-502-Final_project/blob/main/Average temperature per month.png)
+![alt text](https://github.com/chosenobih/BE-502-Final_project/blob/main/Number of fire per month.png)
 
 
 #### Madeline: `Statistical Analysis `
