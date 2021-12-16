@@ -11,8 +11,24 @@ library(lubridate)
 
 #clone https://github.com/chosenobih/BE-502-Final_project
 
-setwd("~/FinalProj") #may need to adjust accordingly
+#check and change working directory to the directory of the cloned, local github repo
+getwd()
+setwd("~/BE-502-Final_project") #may need to adjust accordingly
+getwd()
 
-dir.create("prism_data") #creates data archive in the working directory
+####Start#### Only execute the following lines if you wish to re-download the data already contained in 'prism_gridded'
 
-prism_set_dl_dir("./prism_data")
+# dir.create("prism_gridded") #creates data archive in the working directory, if 'prism_gridded' does not already exist
+
+# prism_set_dl_dir("./prism_gridded") #set the directory where all prism raster data will be downloaded
+
+# #pull daily precip for all of 2020
+# get_prism_dailys(
+#   type = "ppt",
+#   minDate = "2020-01-01",
+#   maxDate = "2020-12-31",
+#   keepZip = FALSE
+# )
+
+
+
