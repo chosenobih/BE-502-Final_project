@@ -48,7 +48,7 @@ The dataset for this project comes in two files. One dataset contains all the in
 ![image](https://user-images.githubusercontent.com/14947851/146124342-fa233d4d-fca5-44d9-b8d6-a875be08abe3.png)
 
 #### Chosen: Visualization of summarized data
-We plotted out the summarized data in bar charts in order to better visualize the data. 
+We plotted out the summarized data in bar charts in order to better visualize the data. The average monthly rain fall chart shows that the highest rain fall was recorded in June and May while the least monthly rain fall was recorded in August and September respectively. On the second chart (average monthly temperature),the highest averaged monthly temperature were recorded in the last four months of the year while the January, April and May had the least average monthly temperature. The higesht fire outbreak were recorded in August and July.
 
  - Average rain per month
 
