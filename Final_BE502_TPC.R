@@ -73,13 +73,46 @@ state <- readOGR("./AZ_TPC/Arizona_boundary.shp") #Shapefile boundary of the sta
 ####End####
 
 
-####Start#### Create a RasterStack (3-D gridded object with multiple layers corresponding to each day of 2020) of Daily 'tmean' and 'ppt' data 
+####Start#### Create a RasterStack (3-D gridded object with multiple layers corresponding to each day of 2020) of Daily 'tmean' data
 
 stack = pd_stack(prism_archive_subset(
   "tmean", "daily", 
   minDate = "2020-01-01", 
   maxDate = "2020-12-31"))
 #dim(stack) #visualize stack dimensions
+
+stack_df <- as.data.frame(stack[[1]])
+
+dim(stack_df)
+
+stack.sub <- crop(stack, extent(state))
+
+clip.sub <- mask(stack.sub, state)
+
+clip.sub_df <- as.data.frame(clip.sub)
+
+fire_variables = c("Fuels1", "Cause", "Agency")  #defining relevant variables from 'fire' csv
+fire_sub = fire[,fire_variables]
+
+for (i in colnames(fire_sub)) {
+  plot(clip.sub[[1]], ylab="latitude", xlab="longitude", main= "Mean Temp for January 1, 2020") # adjust clip.sub[[]] band to view different days of the year
+  plot(state, add = TRUE)
+  points(fire$LONG, fire$LAT, pch = 16, col = fire_sub[[i]])
+  legend(x = "left",                           # Add points to legend
+         legend = unique(fire_sub[[i]]),
+         text.col = "black",
+         lwd = 1,
+         col = unique(fire_sub[[i]]),
+         lty = c(0, 0),
+         pch = 16,
+         bty = "n",
+         cex = 0.50,
+         pt.cex = 1)
+}
+
+
+####End####
+
 
 ####Start#### Extract and visualize total monthly precipitation and mean monthly temperature for a subset of the fires
 
@@ -145,13 +178,41 @@ legend(x = "topright",                           # Add points to legend
 ####End####
 
 
+####Start#### Assess whether cumulative rainfall based on daily PRISM precip data correlates with burn duration or acreage burned
+
+#create a new stack based on precip data for all 2020 (tmean is stack above)
+ppt_stack = pd_stack(prism_archive_subset( 
+  "ppt", "daily", 
+  minDate = "2020-01-01", 
+  maxDate = "2020-12-31"))
+
+ppt_stack.sub <- crop(ppt_stack, extent(state)) #crop ppt stack to the dimensions of AZ
+
+ppt_clip.sub <- mask(ppt_stack.sub, state) #mask out regions not contained within the shapefile boundaries
+
+ppt_sum.sub <- calc(ppt_clip.sub, cumsum) #create a new stack based on a running, cumulative sum from band to band
 
 
+for (i in colnames(fire_sub)) {
+  plot(ppt_sum.sub[[1]], ylab="latitude", xlab="longitude", main= "Total Precip for January 1, 2020") # adjust ppt_sum.sub[[]] band to view different running sum based on day-of-year as stack band
+  plot(state, add = TRUE)
+  points(fire$LONG, fire$LAT, pch = 16, col = fire_sub[[i]])
+  legend(x = "left",                           # Add points to legend
+         legend = unique(fire_sub[[i]]),
+         text.col = "black",
+         lwd = 1,
+         col = unique(fire_sub[[i]]),
+         lty = c(0, 0),
+         pch = 16,
+         bty = "n",
+         cex = 0.50,
+         pt.cex = 1)
+}
 
 
+#perform caluclations for preparing final ppt data for analyses
+lubridate()
 
-list_site <- c() #12 months for each fire
-fire_variables = c("Fuels1", "Cause", "Agency")  #defining relevant variables from 'fire' csv
 start_doy <- c() #start of each fire as day-of-year
 end_doy <- c() #end of each fire as day-of-year
 duration <- c() # how long each fire lasts, from start to end
@@ -159,6 +220,68 @@ acres_burned <- c() #pulled directly from 'fire' csv as acreage burned for each 
 sum_ppt_start = c() #sum of the total rainfall occurring at each site leading up to the start of fire event (i.e., Jan 1, 2020 -> start_doy)
 sum_ppt_end = c() #sum of the total rainfall occurring at each site leading up to the end of fire event (i.e., Jan 1, 2020 -> end_doy)
 
+#extracting geographic information for all wildfire sites
+lat = fire$LAT
+long = fire$LONG
+coords = data.frame(lat, long)
+#print(coords)
+firstPoints <- SpatialPoints(coords = cbind(fire$LONG,fire$LAT))
+print(firstPoints)
+
+for (i in 1:dim(fire)[1]) {
+  
+  #get start dates and convert to DOY, store as vector
+  start_date <- toString(fire$Start[i])
+  start_date <- mdy(start_date)
+  start_doy[i] <- yday(start_date)
+  
+  #get end dates, store as vector
+  end_date <- toString(fire$End[i])
+  end_date <- mdy(end_date)
+  end_doy[i] <- yday(end_date)
+  
+  #compute duration of fire events, store as vector
+  duration[i] <- end_doy[i] - start_doy[i]
+  
+  #get acreage burned for each fire event, store as vector
+  acres_burned[i] <- toString(fire$Acres[i])
+}
+
+#calculating a running sum of cumulative precipitation for each site based on start and end of fire
+for (i in 1:dim(fire)[1]){
+  start = start_doy[i]
+  end = end_doy[i]
+
+  sum_ppt_start[i] = extract(ppt_sum.sub, firstPoints[i], layer = start, nl = 1)
+  sum_ppt_end[i] = extract(ppt_sum.sub, firstPoints[i], layer = end, nl = 1)
+}
+
+#print(sum_ppt_start) #running sum of 
+#print(sum_ppt_end)
+#print(start_doy)
+#print(end_doy)
+#print(duration)
+#print(acres_burned)
+
+plot(sum_ppt_start, acres_burned, ylab="Acres Burned", xlab="Precip (mm)", main= "Cumulative Precip to Start Date vs Acreage Burned")
+
+cor(sum_ppt_start, as.numeric(acres_burned), method = c("pearson"))
+cor.test(sum_ppt_start, as.numeric(acres_burned), method=c("pearson"))
+
+plot(sum_ppt_start, duration, ylab="Days of Fire", xlab="Precip (mm)", main= "Cumulative Precip to Start Date vs Burn Duration")
+
+cor(sum_ppt_start, duration, method = c("pearson"))
+cor.test(sum_ppt_start, duration, method=c("pearson"))
+
+plot(sum_ppt_end, acres_burned, ylab="Acres Burned", xlab="Precip (mm)", main= "Cumulative Precip to End Date vs Acreage Burned")
+
+cor(sum_ppt_end, as.numeric(acres_burned), method = c("pearson"))
+cor.test(sum_ppt_end, as.numeric(acres_burned), method=c("pearson"))
+
+plot(sum_ppt_end, duration, ylab="Days of Fire", xlab="Precip (mm)", main= "Cumulative Precip to End Date vs Burn Duration")
+
+cor(sum_ppt_end, duration, method = c("pearson"))
+cor.test(sum_ppt_end, duration, method=c("pearson"))
 
 
 
