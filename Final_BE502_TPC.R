@@ -20,7 +20,7 @@ getwd()
 
 # dir.create("prism_gridded") #creates data archive in the working directory, if 'prism_gridded' does not already exist
 
-# prism_set_dl_dir("./prism_gridded") #set the directory where all prism raster data will be downloaded
+prism_set_dl_dir("./prism_gridded") #set the directory where all prism raster data will be downloaded
 
 # #pull daily precip for all of 2020
 # get_prism_dailys(
@@ -49,6 +49,20 @@ getwd()
 ####End#### A new 'prism_gridded' directory would now contain all of the same data that is already available in the Github version of the folder
 
 
+####Start#### Visualize 30-year normal annual data for the entire continental US, for perspective
+datatypes <- c("tmean", "ppt")
+
+for (i in datatypes) {
+  annual_normal <- prism_archive_subset(
+    i, "annual normals", resolution = "4km"
+  )
+  pd_image(annual_normal)
+  
+}
+
+####End####
+
+
 ####Start#### Import ancillary data for use in analysis
 
 fire = read.csv(file = 'AZ_2020_fire.csv') # read in csv fire data
@@ -58,7 +72,83 @@ state <- readOGR("./AZ_TPC/Arizona_boundary.shp") #Shapefile boundary of the sta
 
 ####End####
 
-####Start#### Create vectors to store various data for later analysis/display
+
+####Start#### Create a RasterStack (3-D gridded object with multiple layers corresponding to each day of 2020) of Daily 'tmean' and 'ppt' data 
+
+stack = pd_stack(prism_archive_subset(
+  "tmean", "daily", 
+  minDate = "2020-01-01", 
+  maxDate = "2020-12-31"))
+#dim(stack) #visualize stack dimensions
+
+####Start#### Extract and visualize total monthly precipitation and mean monthly temperature for a subset of the fires
+
+len <- dim(fire)[1] # number of fires in the fire dataset
+
+list_ppt <- vector(mode = "list", length = len) #list will contain all 2020 monthly ppt data for all sites
+list_tmean <- vector(mode = "list", length = len) #list will contain all 2020 monthly tmean data for all sites
+list_site <- c() #storing 12 months for each fire in vector for future use
+
+#loops through all sites to extract site name and mean monthly temp -- takes a few minutes
+for (i in 1:dim(fire)[1]) {
+  temp_list <- rep(toString(fire$INC_Name[i]), length = 12)
+  list_site <- c(list_site, temp_list)
+  
+  coords <- c(fire$LONG[i], fire$LAT[i])
+  list_ppt[i] <- pd_plot_slice(
+    prism_archive_subset("ppt", "monthly", year = 2020),
+    coords)
+  list_tmean[i] <- pd_plot_slice(
+    prism_archive_subset("tmean", "monthly", year = 2020),
+    coords)
+  print(i)
+}
+
+#converts list data into data frame
+df = do.call(rbind.data.frame, list_ppt) #create ppt dataframe from ppt list
+df_tmean = do.call(rbind.data.frame, list_tmean) #create dataframe from tmean list
+df['tmean'] = df_tmean$data #add site name column to dataframe
+df['name'] = list_site #add site name column to dataframe
+colnames(df) <- c('Precip_mm','Date', 'Mean_Temp_C', 'Site_Name')
+
+site_sub = 5 #number of sites to visualize; change this # to add/remove site count
+months = 12 #number of months for which data are available in 2020
+pt_count = site_sub*months
+df_sub = df[1:pt_count,] #subset the dataframe
+
+plot(df_sub$Date, df_sub$Precip_mm, pch = 16, col = factor(df_sub$Site_Name), main="Monthly Precip: 5 Sites",
+     xlab="Month", ylab="Total Rainfall (mm)")
+legend(x = "topright",                           # Add points to legend
+       legend = unique(df_sub$Site_Name),
+       text.col = "black",
+       lwd = 1,
+       col = unique(factor(df_sub$Site_Name)),
+       lty = c(0, 0),
+       pch = 16,
+       bty = "n",
+       cex = 0.50,
+       pt.cex = 1)
+
+plot(df_sub$Date, df_sub$Mean_Temp_C, pch = 16, col = factor(df_sub$Site_Name), main="Mean Monthly Temp: 5 Sites",
+     xlab="Month", ylab="Degrees Celcius")
+legend(x = "topright",                           # Add points to legend
+       legend = unique(df_sub$Site_Name),
+       text.col = "black",
+       lwd = 1,
+       col = unique(factor(df_sub$Site_Name)),
+       lty = c(0, 0),
+       pch = 16,
+       bty = "n",
+       cex = 0.50,
+       pt.cex = 1)
+
+####End####
+
+
+
+
+
+
 
 list_site <- c() #12 months for each fire
 fire_variables = c("Fuels1", "Cause", "Agency")  #defining relevant variables from 'fire' csv
@@ -71,16 +161,10 @@ sum_ppt_end = c() #sum of the total rainfall occurring at each site leading up t
 
 
 
-#Visualize 30-year normal annual data for the entire continental US, for perspective
-datatypes <- c("tmean", "ppt")
 
-for (i in datatypes) {
-  annual_normal <- prism_archive_subset(
-    i, "annual normals", resolution = "4km"
-  )
-  pd_image(annual_normal)
-  
-}
+
+
+
 
 
 
